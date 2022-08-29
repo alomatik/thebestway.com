@@ -1,0 +1,103 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TheBestWayServer", "TheBestWayServer", "{C6407D21-2DB5-43AE-A167-2F9980709208}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TheBestWayShared", "TheBestWayShared", "{470D6C8C-707A-431B-B21E-525C9A164E75}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBestWayShared.SharedForClient", "TheBestWayShared\TheBestWayShared.SharedForClient\TheBestWayShared.SharedForClient.csproj", "{7953F63C-216D-4340-AB11-18C3990128D5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBestWayShared.SharedForWorkerService", "TheBestWayShared\TheBestWayShared.SharedForWorkerService\TheBestWayShared.SharedForWorkerService.csproj", "{24688D1A-6D5E-40E1-8280-FEAAD8CB7CFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TheBestWayServerAPI", "TheBestWayServerAPI", "{0969DE73-9EAB-48D5-A313-F832C5E71482}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TheBestWayServerWorkerServices", "TheBestWayServerWorkerServices", "{CC00C496-53D5-4708-BD3F-D5E0713DCEC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{1EC2D248-3E90-4287-9D9E-1A18F87F6217}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{4817E0D7-F9EE-417D-8B7A-C5F6D25FF1AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{D9E92136-313E-4F5C-8A10-63E9963EC80B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBestWayServerAPI.Domain", "TheBestWayServer\TheBestWayServerAPI\Core\TheBestWayServerAPI.Domain\TheBestWayServerAPI.Domain.csproj", "{174D6A7F-3DC9-4D66-8FE0-EB06062DFFA7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBestWayServerAPI.Application", "TheBestWayServer\TheBestWayServerAPI\Core\TheBestWayServerAPI.Application\TheBestWayServerAPI.Application.csproj", "{E7399F05-33C7-489B-80EE-2605C9C47150}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBestWayServerAPI.Persistence", "TheBestWayServer\TheBestWayServerAPI\Infrastructure\TheBestWayServerAPI.Persistence\TheBestWayServerAPI.Persistence.csproj", "{997D85E3-28D0-4EF5-975E-9A7DEB11901D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBestWayServerAPI.Infrastructure", "TheBestWayServer\TheBestWayServerAPI\Infrastructure\TheBestWayServerAPI.Infrastructure\TheBestWayServerAPI.Infrastructure.csproj", "{A3E8D3AE-0F31-4608-8F15-84685AEF2763}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBestWayServerAPI.WebAPI", "TheBestWayServer\TheBestWayServerAPI\Presentation\TheBestWayServerAPI.WebAPI\TheBestWayServerAPI.WebAPI.csproj", "{01634417-A588-4D87-B487-57085857597F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBestWayServerWorkerServices.EmailWorkerService", "TheBestWayServer\TheBestWayServerWorkerServices\TheBestWayServerWorkerServices.EmailWorkerService\TheBestWayServerWorkerServices.EmailWorkerService.csproj", "{A6B4BC73-727D-43A1-90ED-59ACAC97F1C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBestWayServerWorkerServices.VoteWorkerService", "TheBestWayServer\TheBestWayServerWorkerServices\TheBestWayServerWorkerServices.VoteWorkerService\TheBestWayServerWorkerServices.VoteWorkerService.csproj", "{A5C0D4A6-9170-4C5C-9CA8-D205ADD2215B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7953F63C-216D-4340-AB11-18C3990128D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7953F63C-216D-4340-AB11-18C3990128D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7953F63C-216D-4340-AB11-18C3990128D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7953F63C-216D-4340-AB11-18C3990128D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24688D1A-6D5E-40E1-8280-FEAAD8CB7CFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24688D1A-6D5E-40E1-8280-FEAAD8CB7CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24688D1A-6D5E-40E1-8280-FEAAD8CB7CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24688D1A-6D5E-40E1-8280-FEAAD8CB7CFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{174D6A7F-3DC9-4D66-8FE0-EB06062DFFA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{174D6A7F-3DC9-4D66-8FE0-EB06062DFFA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{174D6A7F-3DC9-4D66-8FE0-EB06062DFFA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{174D6A7F-3DC9-4D66-8FE0-EB06062DFFA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7399F05-33C7-489B-80EE-2605C9C47150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7399F05-33C7-489B-80EE-2605C9C47150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7399F05-33C7-489B-80EE-2605C9C47150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7399F05-33C7-489B-80EE-2605C9C47150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{997D85E3-28D0-4EF5-975E-9A7DEB11901D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{997D85E3-28D0-4EF5-975E-9A7DEB11901D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{997D85E3-28D0-4EF5-975E-9A7DEB11901D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{997D85E3-28D0-4EF5-975E-9A7DEB11901D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3E8D3AE-0F31-4608-8F15-84685AEF2763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3E8D3AE-0F31-4608-8F15-84685AEF2763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3E8D3AE-0F31-4608-8F15-84685AEF2763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3E8D3AE-0F31-4608-8F15-84685AEF2763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01634417-A588-4D87-B487-57085857597F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01634417-A588-4D87-B487-57085857597F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01634417-A588-4D87-B487-57085857597F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01634417-A588-4D87-B487-57085857597F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6B4BC73-727D-43A1-90ED-59ACAC97F1C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6B4BC73-727D-43A1-90ED-59ACAC97F1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6B4BC73-727D-43A1-90ED-59ACAC97F1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6B4BC73-727D-43A1-90ED-59ACAC97F1C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5C0D4A6-9170-4C5C-9CA8-D205ADD2215B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5C0D4A6-9170-4C5C-9CA8-D205ADD2215B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5C0D4A6-9170-4C5C-9CA8-D205ADD2215B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5C0D4A6-9170-4C5C-9CA8-D205ADD2215B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7953F63C-216D-4340-AB11-18C3990128D5} = {470D6C8C-707A-431B-B21E-525C9A164E75}
+		{24688D1A-6D5E-40E1-8280-FEAAD8CB7CFD} = {470D6C8C-707A-431B-B21E-525C9A164E75}
+		{0969DE73-9EAB-48D5-A313-F832C5E71482} = {C6407D21-2DB5-43AE-A167-2F9980709208}
+		{CC00C496-53D5-4708-BD3F-D5E0713DCEC3} = {C6407D21-2DB5-43AE-A167-2F9980709208}
+		{1EC2D248-3E90-4287-9D9E-1A18F87F6217} = {0969DE73-9EAB-48D5-A313-F832C5E71482}
+		{4817E0D7-F9EE-417D-8B7A-C5F6D25FF1AE} = {0969DE73-9EAB-48D5-A313-F832C5E71482}
+		{D9E92136-313E-4F5C-8A10-63E9963EC80B} = {0969DE73-9EAB-48D5-A313-F832C5E71482}
+		{174D6A7F-3DC9-4D66-8FE0-EB06062DFFA7} = {1EC2D248-3E90-4287-9D9E-1A18F87F6217}
+		{E7399F05-33C7-489B-80EE-2605C9C47150} = {1EC2D248-3E90-4287-9D9E-1A18F87F6217}
+		{997D85E3-28D0-4EF5-975E-9A7DEB11901D} = {4817E0D7-F9EE-417D-8B7A-C5F6D25FF1AE}
+		{A3E8D3AE-0F31-4608-8F15-84685AEF2763} = {4817E0D7-F9EE-417D-8B7A-C5F6D25FF1AE}
+		{01634417-A588-4D87-B487-57085857597F} = {D9E92136-313E-4F5C-8A10-63E9963EC80B}
+		{A6B4BC73-727D-43A1-90ED-59ACAC97F1C3} = {CC00C496-53D5-4708-BD3F-D5E0713DCEC3}
+		{A5C0D4A6-9170-4C5C-9CA8-D205ADD2215B} = {CC00C496-53D5-4708-BD3F-D5E0713DCEC3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A70BB1E-55FA-48F7-9CA2-3E97B692493B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TheBestWayServerAPI.Domain.Common;
+
+namespace TheBestWayServerAPI.Domain.Entities
+{
+    public class Question : BaseEntity
+    {
+        public string? Title { get; set; }
+
+        public string? Content { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedDate { get; set; }
+
+        public IEnumerable<QuestionAnswer> QuestionAnswers { get; set; }
+        
+        public int PostId { get; set; }
+        public Post Post { get; set; }
+
+        public int UserId { get; set; }
+        public User User { get; set; }
+    }
+}

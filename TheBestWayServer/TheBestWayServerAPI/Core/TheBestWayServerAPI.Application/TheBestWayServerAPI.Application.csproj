@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Commands\UserCommand\SignOut\" />
+    <Folder Include="Features\Commands\UserCommand\ThirdPartyAuth\MicrosoftSignIn\" />
+    <Folder Include="Features\Queries\CommentQueries\GetById\" />
+    <Folder Include="Features\Queries\QuestionQueries\GetById\" />
+    <Folder Include="Features\Queries\RoleQueries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\TheBestWayShared\TheBestWayShared.SharedForWorkerService\TheBestWayShared.SharedForWorkerService.csproj" />
+    <ProjectReference Include="..\TheBestWayServerAPI.Domain\TheBestWayServerAPI.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -65,6 +65,7 @@ namespace TheBestWayServerAPI.Persistence.Extensions
             services.AddScoped<IQuestionAnswerWriteRepository, QuestionAnswerWriteRepository>();
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IAuthService, AuthService>();
 
         }

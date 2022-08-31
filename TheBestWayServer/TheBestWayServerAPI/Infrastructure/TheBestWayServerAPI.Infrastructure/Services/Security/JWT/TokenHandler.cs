@@ -27,9 +27,9 @@ namespace TheBestWayServerAPI.Infrastructure.Services.Security.JWT
             _refreshTokenExpirationDate = DateTime.Now.AddMinutes(Convert.ToInt32(_configuration["TokenOptions:RefreshTokenExpiration"]));
         }
 
-        public TokenDto CreateAccessTokenAndRefreshToken(User user)
+        public TokenDto CreateAccessTokenAndRefreshToken(User user, IList<string>? userRoles)
         {
-            System.IdentityModel.Tokens.Jwt.JwtSecurityToken jwtSecurityToken = TokenConfigurationGenerator(user);
+            System.IdentityModel.Tokens.Jwt.JwtSecurityToken jwtSecurityToken = TokenConfigurationGenerator(user, userRoles);
             //token oluşturucu sınıftan örnek alınıyor.
             System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             //token yazılıyor.
@@ -43,7 +43,7 @@ namespace TheBestWayServerAPI.Infrastructure.Services.Security.JWT
             };
         }
 
-        private JwtSecurityToken TokenConfigurationGenerator(User user)
+        private JwtSecurityToken TokenConfigurationGenerator(User user, IList<string>? userRoles)
         {
             SymmetricSecurityKey symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["TokenOptions:SecurityKey"]));
             //şifrelenmiş kimlik oluşturuluyor.
@@ -52,7 +52,7 @@ namespace TheBestWayServerAPI.Infrastructure.Services.Security.JWT
             System.IdentityModel.Tokens.Jwt.JwtSecurityToken jwtSecurityToken = new System.IdentityModel.Tokens.Jwt.JwtSecurityToken(
                issuer: _configuration["TokenOptions:Issuer"],//tüetici
                audience: _configuration["TokenOptions:Audience"],//üretici
-               claims: GetClaims(user),
+               claims: GetClaims(user, userRoles),
                notBefore: DateTime.Now,//ne kadar sonra devreye girecek
                expires: _accessTokenExpirationDate,//kaç dk süresi olacak
                signingCredentials: signingCredentials//şifreleme tipi
@@ -60,15 +60,20 @@ namespace TheBestWayServerAPI.Infrastructure.Services.Security.JWT
             return jwtSecurityToken;
         }
 
-        private IEnumerable<Claim> GetClaims(User user)     
+        private IEnumerable<Claim> GetClaims(User user, IList<string>? userRoles)
         {
             var userClaims = new List<Claim>()
             {
                 new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
                 new Claim(ClaimTypes.Name,user.UserName),
-                new Claim(JwtRegisteredClaimNames.Email,user.Email),
+                new Claim(ClaimTypes.Email,user.Email),
                 new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
             };
+            if (userRoles.Any())
+            {
+                userClaims.AddRange(userRoles.Select(role => new Claim(ClaimTypes.Role, role)));
+            }
+
             return userClaims;
         }
 

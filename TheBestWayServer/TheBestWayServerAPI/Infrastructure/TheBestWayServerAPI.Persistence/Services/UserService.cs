@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using TheBestWayServerAPI.Application.Abstractions.Services;
 using TheBestWayServerAPI.Application.Exceptions;
 using TheBestWayServerAPI.Application.Results;
+using TheBestWayServerAPI.Application.ViewModels.RoleModels;
 using TheBestWayServerAPI.Application.ViewModels.UserModels;
 using TheBestWayServerAPI.Domain.Entities;
 
@@ -108,6 +109,19 @@ namespace TheBestWayServerAPI.Persistence.Services
             if (userViewModel != null)
                 return new QueryResult<UserViewModel>(200, userViewModel);
             throw new NotImplementedException();
+        }
+
+        public async Task<QueryResult<UserRoleViewModel>> GetUserRoleAsync(int userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            IList<string>? userRoles = await _userManager.GetRolesAsync(user);
+            if (!userRoles.Any())
+                throw new NotFoundException($"No roles found for {user.UserName}.");
+            return new QueryResult<UserRoleViewModel>(201, new UserRoleViewModel
+            {
+                UserId = user.Id,
+                Roles = userRoles.ToArray()
+            });
         }
     }
 }

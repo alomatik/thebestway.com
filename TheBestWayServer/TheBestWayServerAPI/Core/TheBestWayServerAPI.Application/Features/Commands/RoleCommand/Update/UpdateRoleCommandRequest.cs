@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TheBestWayServerAPI.Application.Results;
 
-namespace TheBestWayServerAPI.Application.Features.Commands.RoleCommand.Delete
+namespace TheBestWayServerAPI.Application.Features.Commands.RoleCommand.Update
 {
-    public class DeleteRoleCommandRequest:IRequest<CommandNoMessageResult>
+    public class UpdateRoleCommandRequest:IRequest<CommandNoMessageResult>
     {
         public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

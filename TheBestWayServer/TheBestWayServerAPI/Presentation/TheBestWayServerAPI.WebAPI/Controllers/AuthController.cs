@@ -1,7 +1,9 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TheBestWayServerAPI.Application.Dtos;
+using TheBestWayServerAPI.Application.Features.Commands.RoleCommand.AssignRole;
 using TheBestWayServerAPI.Application.Features.Commands.UserCommand.ChangePassword;
 using TheBestWayServerAPI.Application.Features.Commands.UserCommand.ForgotPassword;
 using TheBestWayServerAPI.Application.Features.Commands.UserCommand.ResetPassword;
@@ -16,6 +18,14 @@ namespace TheBestWayServerAPI.WebAPI.Controllers
         public AuthController(IMediator mediator) : base(mediator)
         {
 
+        }
+
+        [Authorize(Roles ="Admın")]
+        [HttpPost("[action]")]
+        public async Task<IActionResult> AssignRole(AssignRoleCommandRequest assignRoleCommandRequest)
+        {
+            var result = await _mediator.Send(assignRoleCommandRequest);
+            return StatusCode(result.StatusCode, result);
         }
 
         [HttpPost("[action]")]

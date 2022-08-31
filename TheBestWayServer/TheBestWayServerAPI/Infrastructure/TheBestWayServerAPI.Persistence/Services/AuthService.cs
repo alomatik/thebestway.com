@@ -10,6 +10,7 @@ using TheBestWayServerAPI.Application.Abstractions.Services;
 using TheBestWayServerAPI.Application.Dtos.Tokens;
 using TheBestWayServerAPI.Application.Exceptions;
 using TheBestWayServerAPI.Application.Results;
+using TheBestWayServerAPI.Application.ViewModels.RoleModels;
 using TheBestWayServerAPI.Application.ViewModels.UserModels;
 using TheBestWayServerAPI.Domain.Entities;
 using TheBestWayShared.SharedForWorkerService.Dtos;
@@ -83,7 +84,8 @@ namespace TheBestWayServerAPI.Persistence.Services
             SignInResult signInResult = await _signInManager.CheckPasswordSignInAsync(user, signInUserViewModel.Password, false);
             if (!signInResult.Succeeded)
                 throw new IdentityException("Wrong email or password!");
-            TokenDto tokenDto = _tokenHandler.CreateAccessTokenAndRefreshToken(user);
+            IList<string>? userRoles = await _userManager.GetRolesAsync(user);
+            TokenDto tokenDto = _tokenHandler.CreateAccessTokenAndRefreshToken(user, userRoles);
             await _userService.UpdateRefreshTokenAsync(user, tokenDto.RefreshToken, tokenDto.RefreshTokenExpirationDate);
 
             return new CommandWithTokenResult(200, tokenDto, $"Sucessfuly signin and created access and refresh token for {user.UserName}.");
@@ -96,11 +98,41 @@ namespace TheBestWayServerAPI.Persistence.Services
                 throw new NotFoundException("No such user was found");
             if (user.RefreshTokenExpirationDate < DateTime.UtcNow)
                 throw new IdentityException("Refresh token expired");
-            TokenDto tokenDto = _tokenHandler.CreateAccessTokenAndRefreshToken(user);
+            var userRoles = await _userManager.GetRolesAsync(user);
+            TokenDto tokenDto = _tokenHandler.CreateAccessTokenAndRefreshToken(user, userRoles);
             await _userService.UpdateRefreshTokenAsync(user, tokenDto.RefreshToken, tokenDto.RefreshTokenExpirationDate);
 
             return new CommandWithTokenResult(200, tokenDto, $"Sucessfuly signin and created access and refresh token by {refreshToken} for {user.UserName}.");
 
+        }
+
+
+        //public void Deneme()
+        //{
+        //    _userManager.GetRolesAsync()
+        //}
+
+
+        public async Task<Result> AssignRoleAsync(int userId, List<AssignRoleViewModel> assignRoleViewModels)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            foreach (var item in assignRoleViewModels)
+            {
+                if (item.HasRole == true)
+                {
+                    var identityResult = await _userManager.AddToRoleAsync(user, item.RoleName);
+                    if (!identityResult.Succeeded)
+                        IdentityResultError(identityResult);
+                }
+                else
+                {
+                    var identityResult = await _userManager.RemoveFromRoleAsync(user, item.RoleName);
+                    if (!identityResult.Succeeded)
+                        IdentityResultError(identityResult);
+                }
+            }
+            await _userService.UpdateRefreshTokenAsync(user, null, null);
+            return new CommandWithMessageResult(201, $"{user.UserName} has been assigned roles.");
         }
 
         private Exception IdentityResultError(IdentityResult identityResult)

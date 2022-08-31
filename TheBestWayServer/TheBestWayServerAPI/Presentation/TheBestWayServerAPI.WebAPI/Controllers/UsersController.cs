@@ -4,6 +4,7 @@ using TheBestWayServerAPI.Application.Features.Commands.UserCommand.Create;
 using TheBestWayServerAPI.Application.Features.Commands.UserCommand.Delete;
 using TheBestWayServerAPI.Application.Features.Commands.UserCommand.Update;
 using TheBestWayServerAPI.Application.Features.Queries.PostQueries.GetAll;
+using TheBestWayServerAPI.Application.Features.Queries.UserQueries.GetAllRoleById;
 using TheBestWayServerAPI.Application.Features.Queries.UserQueries.GetById;
 
 namespace TheBestWayServerAPI.WebAPI.Controllers
@@ -25,6 +26,17 @@ namespace TheBestWayServerAPI.WebAPI.Controllers
                 Id = id
             };
             var result = await _mediator.Send(getByIdUserQueryRequest);
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpGet("{id}/roles")]
+        public async Task<IActionResult> GetRolesById(int id)
+        {
+            GetAllRoleByIdQueryRequest getAllRoleByIdQueryRequest = new()
+            {
+                Id = id
+            };
+            var result = await _mediator.Send(getAllRoleByIdQueryRequest);
             return StatusCode(result.StatusCode, result);
         }
 

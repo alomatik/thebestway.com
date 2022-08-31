@@ -11,7 +11,6 @@
     <Folder Include="Features\Commands\UserCommand\ThirdPartyAuth\MicrosoftSignIn\" />
     <Folder Include="Features\Queries\CommentQueries\GetById\" />
     <Folder Include="Features\Queries\QuestionQueries\GetById\" />
-    <Folder Include="Features\Queries\RoleQueries\" />
   </ItemGroup>
 
   <ItemGroup>

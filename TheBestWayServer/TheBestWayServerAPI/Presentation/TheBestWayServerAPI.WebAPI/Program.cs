@@ -17,7 +17,6 @@ using TheBestWayServerAPI.WebAPI.Filters;
 using TheBestWayServerAPI.WebAPI.Middlewares;
 using TheBestWayShared.SharedForWorkerService.RabbitMQ;
 
-//TODO ROLE ASSIGN, TOKEN HANDLER CLAIMS REFACTOR
 //TODO IMAGE FİLE IMPLEMENTATION 
 //TODO CACHE(REDIS) IMPLEMENTATION
 //TODO STORE PROCEDURE REFACTOR
@@ -41,6 +40,7 @@ builder.Services.Configure<ApiBehaviorOptions>(apiBehaviorOptions =>
 //                new SqlColumn("UserName",System.Data.SqlDbType.NVarChar)
 //            }
 //};
+
 builder.Host.UseSerilog((hostBuilderContext, loggerConfiguration) =>
 {
     loggerConfiguration.Enrich.FromLogContext();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheBestWayServerAPI.Application.Results;
+using TheBestWayServerAPI.Application.ViewModels.RoleModels;
 using TheBestWayServerAPI.Application.ViewModels.UserModels;
 
 namespace TheBestWayServerAPI.Application.Abstractions.Services
@@ -19,6 +20,8 @@ namespace TheBestWayServerAPI.Application.Abstractions.Services
         Task<CommandWithMessageResult> FargotPasswordAsync(ForgotPasswordViewModel forgotPasswordViewModel);
 
         Task<CommandWithMessageResult> ResetPasswordAsync(ResetPasswordViewModel resetPasswordViewModel);
+
+        Task<Result> AssignRoleAsync(int userId, List<AssignRoleViewModel> assignRoleViewModels);
 
     }
 

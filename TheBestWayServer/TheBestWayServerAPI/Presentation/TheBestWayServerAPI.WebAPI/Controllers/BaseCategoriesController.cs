@@ -32,6 +32,7 @@ namespace TheBestWayServerAPI.WebAPI.Controllers
             return StatusCode(result.StatusCode, result);
         }
 
+        [Authorize(Roles ="Savant3")]
         [HttpGet]
         public async Task<IActionResult> Get(int page, int pageSize)
         {

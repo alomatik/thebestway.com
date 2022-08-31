@@ -10,6 +10,6 @@ namespace TheBestWayServerAPI.Application.Abstractions.Security.JWT
 {
     public interface ITokenHandler
     {
-        TokenDto CreateAccessTokenAndRefreshToken(User user);
+        TokenDto CreateAccessTokenAndRefreshToken(User user, IList<string>? userRoles);
     }
 }
